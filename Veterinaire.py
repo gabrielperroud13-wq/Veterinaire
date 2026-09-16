@@ -117,6 +117,47 @@ match Espèce:
         else:
             Type_Age = "Junévile"
 
+#Indice de Vitalité
+
+Indice_de_vitalité = 100
+
+if (Température_C == "Mauvaise"):
+    Indice_de_vitalité -= 30
+    if (Poid == "Mauvais"):
+       Indice_de_vitalité -= 20
+
+elif (Poid == "Mauvais"):
+       Indice_de_vitalité -= 20
+       if (Température_C == "Mauvaise"):
+           Indice_de_vitalité -= 30
+
+#VERDICT
+
+match Type_espèce:
+    case 1:
+        if Indice_de_vitalité < 100:
+            if Température_C == "Mauvaise":
+                verdict = "URGENT"
+            else:
+                verdict = "SURVEILLANCE"
+        else:
+            verdict = "NORMAL"
+    case 2:
+        if Indice_de_vitalité < 100:
+            if Température_C == "Mauvaise":
+                if Poid == "Mauvais":
+                    verdict = "URGENT"
+            else:
+                verdict = "SURVEILLANCE"
+
+
+
+
+
+
+
+
+
 # Interface des données
 
 LigneÉgal = "="
@@ -142,6 +183,6 @@ print(f"{"Température":<15}:{Température2f:>10} °F  ={Celsius2f:>10} °C")
 print(f"{Tiret:-^80}")
 print(f"")
 print(f"{Tiret:-^80}")
-print(f"")
+print(f"Indice de vitalité : {Indice_de_vitalité} / 100")
 print(f"")
 print(f"{LigneÉgal:=^80}")
