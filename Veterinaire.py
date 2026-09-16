@@ -8,7 +8,7 @@
 Titre = "INFORMATION SUR LE SPÉCIMEN"
 Tiret = "-"
 
-print(f"{Titre:-^60}")
+print(f"{Titre:-^70}")
 print(f"")
 Nom = str(input("Nom de l'animal : "))
 Espèce = int(input("Espèce de l'animal (1 = requin, 2 = tigre, 3 = gnou) : "))
@@ -16,19 +16,25 @@ Espèce = int(input("Espèce de l'animal (1 = requin, 2 = tigre, 3 = gnou) : "))
 Masse = float(input("Masse de l'animal (en livres) : "))
 Température =  float(input("Tempéraure corporelle de l'animal (en °F) : "))
 print(f"")
-print(f"{Tiret:-^60}")
+print(f"{Tiret:-^70}")
 print(f"")
 
 #Conversion des donnée
 
+Année = (Âge // 12)
+Mois = (Âge % 12)
 Kilogrammes = (Masse * 0.453592)
 Celsius = ((Température - 32) * 0.555555556)
+Celsius2f = (f"{Celsius:.2f}")
+Kilogrammes2f = (f"{Kilogrammes:.2f}")
 
-#IF et ELSE et MATCH Température/Masse
+# #IF et ELSE et MATCH Température/Masse ET normes T/M
 
 match Espèce:
     case 1:
         Type_espèce = "requin"
+        normesT = "22,0-26,0"
+        normesM = "60,0-150,0"
         if Celsius >= 22.0:
             Température_C = "Bonne"
             if Celsius <= 26.0:
@@ -49,6 +55,8 @@ match Espèce:
 
     case 2:
         Type_espèce = "tigre"
+        normesT = "37,5-39,0"
+        normesM = "100,0-260,0"
         if Celsius >= 37.5:
             Température_C = "Bonne"
             if Celsius <= 39.0:
@@ -68,6 +76,8 @@ match Espèce:
 
     case 3:
         Type_espèce = "gnou"
+        normesT = "37,5-39,0"
+        normesM = "120,0-270,0"
         if Celsius >= 37.5:
             Température_C = "Bonne"
             if Celsius <= 39.0:
@@ -85,22 +95,31 @@ match Espèce:
         else:
             Poid = "Mauvais"
 
-print(Type_espèce)
-print(Température)
-print(Masse)
-print(Kilogrammes)
-print(Celsius)
-print(Température_C)
-print(Poid)
+# Interface des données
 
-#Interface des données
-
-# LigneÉgal = "="
-# Nom_Bâtiment = "CLINIQUE VÉTÉRINAIRE EXOTIQUE"
-# Lieux_Bâtiment = "DES ÎLES ST-MAURICE"
+LigneÉgal = "="
+Nom_Bâtiment = "CLINIQUE VÉTÉRINAIRE EXOTIQUE"
+Lieux_Bâtiment = "DES ÎLES ST-MAURICE"
 
 
-# print(f"{LigneÉgal:=^60}")
-# print(f"{Nom_Bâtiment:^60}")
-# print(f"{Lieux_Bâtiment:^60}")
-# print(f"{LigneÉgal:=^60}")
+print(f"{LigneÉgal:=^70}")
+print(f"{Nom_Bâtiment:^70}")
+print(f"{Lieux_Bâtiment:^70}")
+print(f"{LigneÉgal:=^70}")
+print(f"")
+print(f"")
+print(f"")
+print(f"{Tiret:-^80}")
+print(f"{"Mesure":<30}{"Valeur":>20}{"":>5}{"Norme"}")
+print(f"{"Température (°C)":<30}{Celsius2f:>20}{"":>5}{normesT}")
+print(f"{"Masse (kg)":<30}{Kilogrammes2f:>20}{"":>5}{normesM}")
+print(f"{Tiret:-^80}")
+print(f"")
+print(f"")
+print(f"")
+print(f"{Tiret:-^80}")
+print(f"")
+print(f"{Tiret:-^80}")
+print(f"")
+print(f"")
+print(f"{LigneÉgal:=^80}")
