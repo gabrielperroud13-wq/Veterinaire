@@ -30,7 +30,7 @@ Kilogrammes2f = (f"{Kilogrammes:.2f}")
 Masse2f = (f"{Masse:.2f}")
 Température2f = (f"{Température:.2f}")
 
-# #IF et ELSE et MATCH Température/Masse ET normes T/M
+# #IF et ELSE et MATCH Température/Masse ET Âge ET normes T/M
 
 match Espèce:
     case 1:
@@ -53,7 +53,13 @@ match Espèce:
                 Poid = "Mauvais"
         else:
             Poid = "Mauvais"
-
+        if Âge >= 60:
+            if Âge < 240:
+                Type_Age = "Adulte"
+            else:
+                Type_Age = "Senior"
+        else:
+            Type_Age = "Junévile"
 
     case 2:
         Type_espèce = "tigre"
@@ -75,6 +81,13 @@ match Espèce:
                 Poid = "Mauvais"
         else:
             Poid = "Mauvais"
+        if Âge >= 36:
+            if Âge < 144:
+                Type_Age = "Adulte"
+            else:
+                Type_Age = "Senior"
+        else:
+            Type_Age = "Junévile"
 
     case 3:
         Type_espèce = "gnou"
@@ -96,6 +109,13 @@ match Espèce:
                 Poid = "Mauvais"
         else:
             Poid = "Mauvais"
+        if Âge >= 36:
+            if Âge < 180:
+                Type_Age = "Adulte"
+            else:
+                Type_Age = "Senior"
+        else:
+            Type_Age = "Junévile"
 
 # Interface des données
 
@@ -109,8 +129,7 @@ print(f"{Nom_Bâtiment:^70}")
 print(f"{Lieux_Bâtiment:^70}")
 print(f"{LigneÉgal:=^70}")
 print(f"{"Patient":<18}: {Nom} ({Type_espèce})")
-print(f"")
-#print(f"{"Âge":<18}: {Année} ans et {Mois} mois ({||||||||})")
+print(f"{"Âge":<18}: {Année} ans et {Mois} mois ({Type_Age})")
 print(f"{"Saisie":<18}: masse en lbs, température en °F")
 print(f"{Tiret:-^80}")
 print(f"{"Mesure":<30}{"Valeur":>20}{"":>5}{"Norme"}")
